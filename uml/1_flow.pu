@@ -1,0 +1,20 @@
+@startuml
+start
+if (見返す/復旧する/保存義務/リレーションがない) then (true)
+  :物理削除;
+else (false)
+  :論理削除;
+  if (秘匿情報も含む) then (true)
+    :マスキング;
+  elseif (ログとして保持したい) then (true)
+    if (リレーションがある) then (true)
+      :削除フラグ;
+    else (fasle)
+      :アーカイブ;
+    endif
+  else
+    :削除フラグ/ステータス/状態テーブルから選択;
+  endif
+endif
+stop
+@enduml

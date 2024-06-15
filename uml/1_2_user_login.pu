@@ -1,0 +1,9 @@
+@startuml
+entity ユーザー {
+  * ユーザーID
+  --
+  * ユーザー名
+  * ログインID
+  * パスワード
+}
+@enduml
